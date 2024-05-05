@@ -1,0 +1,240 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+}
+
+.content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+h1, h2 {
+    color: #333;
+    justify-content: center;
+    text-align: center;
+}
+
+p {
+    line-height: 1.6;
+    color: #666;
+}
+
+#inputForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: auto;
+}
+
+.input-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 50%; /* Adjust this to change the width of the input fields */
+    margin-bottom: 20px;
+}
+
+.input-block {
+    display: flex;
+    flex-direction: row; /* Change this from column to row */
+    align-items: center; /* Align items vertically in the center */
+    width: 100%;
+    justify-content: space-between; /* Add space between label and input field */
+}
+
+.input-block label {
+    margin-bottom: 10px;
+    font-weight: bold;
+    width:150px;
+    line-height: 30px;
+}
+
+.input-block input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin:10px;
+    height: 25px;
+}
+
+input[type="button"] {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+input[type="button"]:hover {
+    background-color: #444;
+}
+
+input[type="number"],
+input[type="text"],
+button {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+input[type="number"],
+input[type="text"] {
+    width: calc(100% - 22px);
+}
+
+button {
+    cursor: pointer;
+    background-color: #000000;
+    color: #fff;
+    transition: background-color 0.3s ease;
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+button:hover {
+    background-color: #949494;
+}
+
+
+.table1 {
+    width: 85%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    overflow-x: auto;
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.table1 th, .table1 td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+    width: 150px; /* Ajoutez une largeur fixe */
+    min-width: 150px; /* Assurez-vous que la largeur ne descend pas en dessous de cette valeur */
+    max-width: 150px; /* Assurez-vous que la largeur ne dépasse pas cette valeur */
+    overflow: hidden; /* Cache le contenu qui dépasse de la cellule */
+    text-overflow: ellipsis; /* Ajoute des points de suspension si le contenu dépasse */
+    white-space: nowrap; /* Empêche le texte de passer à la ligne */
+}
+
+.table1 th:first-child, .table1 td:first-child {
+    position: sticky;
+    left: 0;
+    background-color: #fff;
+    border-right: 1px solid #ddd;
+}
+
+.chart-container{
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+#chartType {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    margin-bottom: 20px; /* Add some space below the select element */
+}
+
+/* Style for hover and focus states */
+#chartType:hover, #chartType:focus {
+    border-color: #007bff; /* Change border color on hover and focus */
+}
+
+/* Style for the dropdown arrow */
+#chartType::after {
+    content: '\25BC'; /* Unicode for the down arrow */
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    pointer-events: none; /* Ensure the arrow doesn't affect clicking the select */
+}
+
+/* Style for the dropdown options */
+#chartType option {
+    background-color: #fff;
+    color: #333;
+}
+
+
+.chart2 {
+    max-width: 400px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+#outputTableContainer {
+    max-width: 100%; /* Ensure the table container doesn't exceed the width of its parent */
+    margin: 20px auto; /* Center the table container horizontally with some margin */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow-x: auto; /* Allow horizontal scrolling if the table exceeds the container width */
+}
+
+#outputTableContainer table {
+    width: 100%; /* Ensure the table fills the width of the container */
+    border-collapse: collapse; /* Collapse table borders */
+}
+
+#outputTableContainer th, #outputTableContainer td {
+    padding: 10px; /* Add padding to table cells */
+    border: 1px solid #ccc; /* Add border to table cells */
+    text-align: left; /* Align text to the left within cells */
+}
+
+#outputTableContainer th:first-child, #outputTableContainer td:first-child {
+    position: sticky; /* Make the first column sticky */
+    left: 0;
+    background-color: #fff; /* Background color of sticky column */
+    border-right: 1px solid #ddd; /* Add border to the right of sticky column */
+}
+
+@media (max-width: 768px) {
+    .input-row {
+        flex-direction: column;
+    }
+
+    .input-block {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    input[type="number"],
+    input[type="text"] {
+        width: 100%;
+    }
+}
+
+#tableContainer {
+    display: none;
+}

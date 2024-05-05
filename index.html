@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ABC Method Chart</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="content">
+        <h1>ABC Method Chart</h1>
+        <p>This chart represents the ABC method, a technique used for prioritizing tasks based on their level of importance. The method categorizes tasks into three categories: A (most important), B (moderately important), and C (least important). The chart visualizes the percentage of criteria cumulative for each category, along with their corresponding percentage rang.</p>
+    </div>
+
+    
+    <form id="inputForm">
+        <div class="input-row">
+            <div class="input-block">
+                <label for="Number-of-Article">Number of Article:</label>
+                <input type="number" id="Number-of-Article" min="0">
+            </div>
+            <div class="input-block">
+                <label for="Name-of-Criteria">Name of Criteria</label>
+                <input type="text" id="Name-of-Criteria">
+            </div>
+        </div>
+        <input type="button" value="Generate Table" onclick="generateTable()" id="Generate-Table">
+    </form>
+    <div id="tableContainer"></div>
+
+
+    <div class="chart-container" id="the-first-chart">
+        <select id="chartType">
+            <option value="bar">Bar</option>
+            <option value="line">Line</option>
+        </select>
+        <canvas id="abc-chart" width="400" height="250"></canvas>
+    </div>
+
+    <div class="content">
+        <h2>How to Use the Chart</h2>
+        <p>Use the chart to prioritize tasks based on their level of importance. The chart displays the percentage of criteria cumulative for each category (A, B, C), along with their corresponding percentage range. The chart can help you identify which tasks are most important and should be completed first, which tasks are moderately important and should be completed next, and which tasks are least important and can be completed last.</p>
+    </div>
+
+
+    <div class="chart2" id="the-second-chart">
+    <canvas id="classification-chart" width="400" height="150"></canvas>
+    </div>
+
+    <div id="outputTableContainer" id="the-second-table"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-annotation/0.5.7/chartjs-plugin-annotation.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
