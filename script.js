@@ -66,7 +66,7 @@ function generateTable(data = [[], []]) {
         };
         generateCharts(dataset);
         // Generate the output table
-        var outputTableHTML = "<table><tr><th>Article Name</th><th>Criteria Value</th><th>Criteria Value Cum</th><th>Percentage</th><th>Rang</th><th>% Rang</th><th>Classification</th></tr>";
+        var outputTableHTML = "<table><tr><th>Article Name</th><th>"+criteria_name+"</th><th>"+criteria_name+" Cum</th><th>"+criteria_name+"%</th><th>Range</th><th>% Range</th><th>Classification</th></tr>";
         for (var j = 0; j < number_of_articles; j++) {
             outputTableHTML += "<tr><td>" + dic.articleNameSorted[j] + "</td><td>" + dic.articleCriteriaSorted[j] + "</td><td>" + dic.articleCriteriaCum[j] + "</td><td>" + dic.pourcentage[j].toFixed(2) + "</td><td>" + dic.rang[j] + "</td><td>" + dic.pourcentageRang[j].toFixed(2)+ "</td><td>" + dic.classification[j] + "</td></tr>";
         }
@@ -398,21 +398,4 @@ function handleFile(event) {
     };
 
     reader.readAsArrayBuffer(file);
-}
-
-function generateTableExcel(data) {
-    const table = document.getElementById('tableContainer');
-    table.innerHTML = '';
-
-    data.forEach(rowData => {
-        const row = document.createElement('tr');
-
-        rowData.forEach(cellData => {
-            const cell = document.createElement('td');
-            cell.textContent = cellData;
-            row.appendChild(cell);
-        });
-
-        table.appendChild(row);
-    });
 }
