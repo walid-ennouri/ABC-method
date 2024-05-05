@@ -235,6 +235,21 @@ button:hover {
     }
 }
 
-#tableContainer {
-    display: none;
-}
+#fileInputContainer {
+    text-align: center; /* Center the content horizontally */
+    margin-top: 50px; /* Adjust margin from the top */
+  }
+  
+  #fileInput {
+    /* Add your custom styles for the file input */
+    padding: 10px; /* Adjust padding */
+    border: 2px solid #ccc; /* Add border */
+    border-radius: 5px; /* Add border radius for rounded corners */
+    background-color: #f9f9f9; /* Set background color */
+    color: #333; /* Set text color */
+    font-size: 16px; /* Set font size */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    margin-bottom: 20px;;
+    /* Add any other styles as needed */
+  }
+  

@@ -11,32 +11,39 @@ let theChart2 = document.getElementById('the-second-chart');
 tableContainer.style.display = 'none';
 theChart1.style.display = 'none';
 theChart2.style.display = 'none';
+
+
 // Add event listener to the button
 button.addEventListener('click', function() {
     // Make the tableContainer visible
     tableContainer.style.display = 'block';
 });
 
-function generateTable() {
+function generateTable(data = [[], []]) {
     var number_of_articles = parseInt(document.getElementById("Number-of-Article").value);
     var criteria_name = document.getElementById("Name-of-Criteria").value;
-
+    var data1= data[0];
+    var data2= data[1];
     var tableHTML = "<table class='table1'><tr><th>Article Name</th>";
     for (var i = 0; i < number_of_articles; i++) {
-        tableHTML += "<td><input type='text' class='centered-input' id='article_name_" + i + "'></td>";
+        var inputData1 = data1[i+1] ? data1[i+1] : ''; 
+        tableHTML += "<td><input type='text' class='centered-input' id='article_name_" + i + "' value='" + inputData1 + "'></td>";
+        // tableHTML += "<td><input type='text' class='centered-input' id='article_name_" + i + "' ></td>";
     }
     tableHTML += "</tr><tr><td>"+criteria_name+"</td>";
     for (var j = 0; j < number_of_articles; j++) {
-        tableHTML += "<td><input type='number' class='centered-input' id='article_criteria_" + j + "' min='0'></td>";
+        var inputData2 = data2[j+1] ? data2[j+1] : ''; 
+        tableHTML += "<td><input type='number' class='centered-input' id='article_criteria_" + j + "' min='0' value='"+ inputData2 +"'></td>";
     }
     tableHTML += "</tr></table><br/>";
 
     // Add a calculate button to the table
+    tableHTML += '<div id="fileInputContainer"><input type="file" id="fileInput"></div>';
     tableHTML += '<div id="buttonContainer"><button id="calculate">Calculate</button></div>';
 
 
     document.getElementById("tableContainer").innerHTML = tableHTML;
-    
+    document.getElementById('fileInput').addEventListener('change', handleFile);
     // Add an event listener to the calculate button
     document.getElementById("calculate").addEventListener("click", function() {
         theChart1.style.display = 'block';
@@ -372,4 +379,40 @@ function generateCharts(dataset) {
     // Return the chart objects
     return [abcChart, myChart];
 
+}
+
+
+function handleFile(event) {
+    // console.log("I am in handleFile")
+    const file = event.target.files[0];
+    const reader = new FileReader();
+
+    reader.onload = function (e) {
+        const data = new Uint8Array(e.target.result);
+        const workbook = XLSX.read(data, { type: 'array' });
+        const sheetName = workbook.SheetNames[0];
+        const sheet = workbook.Sheets[sheetName];
+        const tableData = XLSX.utils.sheet_to_json(sheet, { header: 1 });
+        // console.log(tableData)
+        generateTable(tableData);
+    };
+
+    reader.readAsArrayBuffer(file);
+}
+
+function generateTableExcel(data) {
+    const table = document.getElementById('tableContainer');
+    table.innerHTML = '';
+
+    data.forEach(rowData => {
+        const row = document.createElement('tr');
+
+        rowData.forEach(cellData => {
+            const cell = document.createElement('td');
+            cell.textContent = cellData;
+            row.appendChild(cell);
+        });
+
+        table.appendChild(row);
+    });
 }
