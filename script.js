@@ -279,6 +279,9 @@ function generateCharts(dataset) {
         return parseFloat(value.toFixed(2));
     });
 
+    dataset.pourcentage_rang = dataset.pourcentage_rang.map(function(value) {
+        return parseFloat(value.toFixed(2));
+    });
     // Map classifications to colors
     var backgroundColors = dataset.classification.map(function(classification) {
         switch (classification) {
